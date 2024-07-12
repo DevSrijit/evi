@@ -2,6 +2,8 @@
 
 import { useLayoutEffect } from "react";
 import HumeLogo from "./logos/Hume";
+import { Button } from "./ui/button";
+import { SiGithubsponsors } from '@icons-pack/react-simple-icons';
 
 export const Nav = () => {
   useLayoutEffect(() => {
@@ -19,7 +21,22 @@ export const Nav = () => {
         <HumeLogo className={"h-5 w-auto"} />
       </div>
       <div className={"ml-auto flex items-center gap-1"}>
-        {/*buttons*/}
+        <Button
+          onClick={() => {
+            window.open(
+              "https://github.com/sponsors/DevSrijit",
+              "_blank",
+              "noopener noreferrer"
+            );
+          }}
+          variant={"ghost"}
+          className={"ml-auto flex items-center gap-1.5"}
+        >
+          <span>
+           <SiGithubsponsors />
+          </span>
+          <span>Sponsor This</span>
+        </Button>
       </div>
     </div>
   );

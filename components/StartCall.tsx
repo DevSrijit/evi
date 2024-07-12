@@ -2,6 +2,7 @@ import { useVoice } from "@humeai/voice-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
+import { Vortex } from "@/components/ui/vortex"; // Make sure to import your Vortex component correctly
 
 export default function StartCall() {
   const { status, connect } = useVoice();
@@ -9,27 +10,36 @@ export default function StartCall() {
   return (
     <AnimatePresence>
       {status.value !== "connected" ? (
-        <motion.div
-          className={"fixed inset-0 p-4 flex items-center justify-center bg-background"}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          variants={{
-            initial: { opacity: 0 },
-            enter: { opacity: 1 },
-            exit: { opacity: 0 },
-          }}
-        >
-          <AnimatePresence>
-            <motion.div
-              variants={{
-                initial: { scale: 0.5 },
-                enter: { scale: 1 },
-                exit: { scale: 0.5 },
-              }}
+        <div className="w-screen mx-auto rounded-md h-screen overflow-hidden">
+          <motion.div
+            className={
+              "fixed inset-0 p-4 flex items-center justify-center bg-background"
+            }
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={{
+              initial: { opacity: 0 },
+              enter: { opacity: 1 },
+              exit: { opacity: 0 },
+            }}
+          >
+            <Vortex
+              backgroundColor="black"
+              rangeY={800}
+              particleCount={500}
+              
+              className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
             >
+              <h2 className="text-white text-2xl md:text-6xl font-bold text-center">
+                The hell is this?
+              </h2>
+              <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
+                This is chemical burn. It&apos;ll hurt more than you&apos;ve
+                ever been burned and you&apos;ll have a scar.
+              </p>
               <Button
-                className={"z-50 flex items-center gap-1.5"}
+                className={"z-50 flex items-center gap-1.5 m-10"}
                 onClick={() => {
                   connect()
                     .then(() => {})
@@ -46,9 +56,18 @@ export default function StartCall() {
                 </span>
                 <span>Start Call</span>
               </Button>
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
+            </Vortex>
+            <AnimatePresence>
+              <motion.div
+                variants={{
+                  initial: { scale: 0.5 },
+                  enter: { scale: 1 },
+                  exit: { scale: 0.5 },
+                }}
+              ></motion.div>
+            </AnimatePresence>
+          </motion.div>
+        </div>
       ) : null}
     </AnimatePresence>
   );

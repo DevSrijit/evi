@@ -34,10 +34,11 @@ export default function StartCall() {
                 The hell is EVI ?
               </h2>
               <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
-                EVI stands for Empathetic Voice Interface.
-                In a world full of noise, EVI is the quiet voice that listens.
-                He talks to you like a real friend, navigating through the
-                emotions of human life.
+                EVI stands for Empathetic Voice Interface. In a world full of
+                noise, EVI is the quiet voice that listens. He talks to you like
+                a real friend, navigating through the emotions of human life.
+                EVI has real world data access and can use the internet to
+                respond to factual questions.
               </p>
               <Button
                 className={"z-50 flex items-center gap-1.5 m-10"}

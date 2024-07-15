@@ -6,8 +6,8 @@ import { Nav } from "@/components/Nav";
 import { cn } from "@/utils";
 
 export const metadata: Metadata = {
-  title: "EVI",
-  description: "A friendly neighbourhood companion named EVI",
+  title: "Peter - EVI",
+  description: "A friendly neighbourhood companion named Peter",
 };
 
 export default function RootLayout({

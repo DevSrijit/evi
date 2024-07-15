@@ -4,6 +4,7 @@ import { useLayoutEffect } from "react";
 import HumeLogo from "./logos/Hume";
 import { Button } from "./ui/button";
 import { SiGithubsponsors } from '@icons-pack/react-simple-icons';
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 export const Nav = () => {
   useLayoutEffect(() => {
@@ -37,6 +38,9 @@ export const Nav = () => {
           </span>
           <span>Sponsor This</span>
         </Button>
+        <SignedIn>
+          <UserButton showName/>
+        </SignedIn>
       </div>
     </div>
   );

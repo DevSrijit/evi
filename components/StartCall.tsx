@@ -1,8 +1,9 @@
 import { useVoice } from "@humeai/voice-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Phone } from "lucide-react";
+import { LogInIcon, Phone } from "lucide-react";
 import { Vortex } from "@/components/ui/vortex"; // Make sure to import your Vortex component correctly
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 export default function StartCall() {
   const { status, connect } = useVoice();
@@ -31,33 +32,51 @@ export default function StartCall() {
               className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
             >
               <h2 className="text-white text-2xl md:text-6xl font-bold text-center">
-                The hell is EVI ?
+                Who is Peter ?
               </h2>
-              <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
-                EVI stands for Empathetic Voice Interface. In a world full of
-                noise, Peter is the quiet voice that listens. Peter talks to you like
-                a real friend, navigating through the emotions of human life.
-                Peter has real world data access and can use the internet to
-                respond to factual questions.
+              <p className="text-white text-sm md:text-2xl max-w-4xl mt-6 text-center">
+                Introducing Peter: Your friendly conversational companion. In a
+                noisy world, Peter is your calming voice, ready to chat like a
+                true friend, guiding you through life's emotional landscape.
+                Equipped with cutting-edge sentiment analysis, Peter truly
+                understands your emotions through your voice. With access to
+                real-world data and internet smarts, Peter is always here to
+                answer your questions.
               </p>
-              <Button
-                className={"z-50 flex items-center gap-1.5 m-10"}
-                onClick={() => {
-                  connect()
-                    .then(() => {})
-                    .catch(() => {})
-                    .finally(() => {});
-                }}
-              >
-                <span>
-                  <Phone
-                    className={"size-4 opacity-50"}
-                    strokeWidth={2}
-                    stroke={"currentColor"}
-                  />
-                </span>
-                <span>Start Call</span>
-              </Button>
+              <SignedIn>
+                <Button
+                  className={"z-50 flex items-center gap-1.5 m-10"}
+                  onClick={() => {
+                    connect()
+                      .then(() => {})
+                      .catch(() => {})
+                      .finally(() => {});
+                  }}
+                >
+                  <span>
+                    <Phone
+                      className={"size-4 opacity-50"}
+                      strokeWidth={2}
+                      stroke={"currentColor"}
+                    />
+                  </span>
+                  <span>Start Call</span>
+                </Button>
+              </SignedIn>
+              <SignedOut>
+                <SignInButton>
+                  <Button className={"z-50 flex items-center gap-1.5 m-10"}>
+                    <span>
+                      <LogInIcon
+                        className={"size-4 opacity-50"}
+                        strokeWidth={2}
+                        stroke={"currentColor"}
+                      />
+                    </span>
+                    <span>Sign In to Start</span>
+                  </Button>
+                </SignInButton>
+              </SignedOut>
             </Vortex>
             <AnimatePresence>
               <motion.div

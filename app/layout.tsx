@@ -4,6 +4,9 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { cn } from "@/utils";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+
 
 export const metadata: Metadata = {
   title: "Peter - EVI",
@@ -16,17 +19,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          GeistSans.variable,
-          GeistMono.variable,
-          "flex flex-col min-h-screen"
-        )}
-      >
-        <Nav />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider
+    appearance={{
+      baseTheme: dark,
+    }}
+    >
+      <html lang="en">
+        <body
+          className={cn(
+            GeistSans.variable,
+            GeistMono.variable,
+            "flex flex-col min-h-screen"
+          )}
+        >
+            <Nav />
+            {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

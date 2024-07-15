@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.2.3",
+    "@clerk/themes": "^2.1.10",
     "@humeai/voice": "^0.1.6",
     "@humeai/voice-react": "^0.1.6",
     "@icons-pack/react-simple-icons": "^9.6.0",

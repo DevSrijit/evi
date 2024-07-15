@@ -35,9 +35,9 @@ export default function StartCall() {
               </h2>
               <p className="text-white text-sm md:text-2xl max-w-xl mt-6 text-center">
                 EVI stands for Empathetic Voice Interface. In a world full of
-                noise, Peter is the quiet voice that listens. Peter talks to you like
+                noise, EVI is the quiet voice that listens. He talks to you like
                 a real friend, navigating through the emotions of human life.
-                Peter has real world data access and can use the internet to
+                EVI has real world data access and can use the internet to
                 respond to factual questions.
               </p>
               <Button
